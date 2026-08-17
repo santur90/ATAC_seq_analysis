@@ -1,0 +1,14 @@
+name: atacseq
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - fastqc
+  - fastp
+  - multiqc
+  - bowtie2
+  - samtools
+  - bedtools
+  - macs3
+  - deeptools
+  - idr
