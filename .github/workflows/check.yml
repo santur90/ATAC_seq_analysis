@@ -1,0 +1,26 @@
+name: Check pipeline
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  shellcheck:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ShellCheck
+        run: sudo apt-get update && sudo apt-get install -y shellcheck
+
+      - name: Validate shell syntax
+        run: |
+          bash -n run_atacseq.sh
+          bash -n scripts/*.sh
+
+      - name: Run ShellCheck
+        run: shellcheck run_atacseq.sh scripts/*.sh
+
+      - name: Dry-run pipeline
+        run: ./run_atacseq.sh --config config.tsv --samples samples.tsv --dry-run
