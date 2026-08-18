@@ -10,7 +10,7 @@ downstream=$6
 threads=$7
 
 mkdir -p "$outdir/fragment_size" "$outdir/tss"
-while IFS=$'\t' read -r sample condition replicate r1 r2; do
+while IFS=$'\t' read -r sample _ _ _ _; do
     [[ "$sample" == "sample" || -z "$sample" ]] && continue
     bam="$bamdir/${sample}.filtered.bam"
     [[ -f "$bam" ]] || { echo "BAM missing for $sample: $bam" >&2; exit 1; }

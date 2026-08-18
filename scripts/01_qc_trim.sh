@@ -6,7 +6,7 @@ outdir=$2
 threads=$3
 
 mkdir -p "$outdir/raw_fastqc" "$outdir/trimmed" "$outdir/fastp"
-while IFS=$'\t' read -r sample condition replicate r1 r2; do
+while IFS=$'\t' read -r sample _ _ r1 r2; do
     [[ "$sample" == "sample" || -z "$sample" ]] && continue
     [[ -f "$r1" ]] || { echo "Missing R1 for $sample: $r1" >&2; exit 1; }
     [[ -f "$r2" ]] || { echo "Missing R2 for $sample: $r2" >&2; exit 1; }

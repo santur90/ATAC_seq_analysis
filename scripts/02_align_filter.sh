@@ -13,7 +13,7 @@ mitochondrial_chrom=$9
 blacklist=${10:-}
 
 mkdir -p "$outdir/intermediate" "$outdir/logs"
-while IFS=$'\t' read -r sample condition replicate r1 r2; do
+while IFS=$'\t' read -r sample _ _ _ _; do
     [[ "$sample" == "sample" || -z "$sample" ]] && continue
     read1="$trimmed/${sample}_R1.fastq.gz"
     read2="$trimmed/${sample}_R2.fastq.gz"

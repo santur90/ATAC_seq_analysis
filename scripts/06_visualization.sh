@@ -9,7 +9,7 @@ threads=$5
 fragment_length=$6
 
 mkdir -p "$outdir/bigwig" "$outdir/figures"
-while IFS=$'\t' read -r sample condition replicate r1 r2; do
+while IFS=$'\t' read -r sample _ _ _ _; do
     [[ "$sample" == "sample" || -z "$sample" ]] && continue
     bam="$bamdir/${sample}.filtered.bam"
     [[ -f "$bam" ]] || continue

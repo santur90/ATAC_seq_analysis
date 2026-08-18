@@ -53,7 +53,6 @@ run() {
 qc_dir="$script_dir/$outdir/qc"
 bam_dir="$script_dir/$outdir/bam"
 peak_dir="$script_dir/$outdir/peaks"
-bigwig_dir="$script_dir/$outdir/bigwig"
 mkdir -p "$script_dir/$outdir/logs"
 
 run bash "$script_dir/scripts/01_qc_trim.sh" "$samples" "$qc_dir" "$threads"
